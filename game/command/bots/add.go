@@ -2,18 +2,19 @@ package bots
 
 import (
 	"fmt"
-	"github.com/ThronesMC/game/game"
-	"github.com/ThronesMC/game/game/handler_custom"
-	"github.com/ThronesMC/game/game/mechanic/bot"
-	"github.com/ThronesMC/game/game/skins"
+	"log"
+	"path"
+	"time"
+
+	"github.com/BlockBrawn/game/game"
+	"github.com/BlockBrawn/game/game/handler_custom"
+	"github.com/BlockBrawn/game/game/mechanic/bot"
+	"github.com/BlockBrawn/game/game/skins"
 	"github.com/df-mc/dragonfly/server/cmd"
 	"github.com/df-mc/dragonfly/server/player"
 	"github.com/df-mc/dragonfly/server/world"
 	"github.com/df-mc/npc"
 	"github.com/sandertv/gophertunnel/minecraft/text"
-	"log"
-	"path"
-	"time"
 )
 
 type AddSubCommand struct {

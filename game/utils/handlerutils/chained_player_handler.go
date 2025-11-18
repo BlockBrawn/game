@@ -1,11 +1,12 @@
 package handlerutils
 
 import (
-	"github.com/ThronesMC/game/game"
-	"github.com/ThronesMC/game/game/handler_custom"
-	"github.com/df-mc/dragonfly/server/entity"
 	"net"
 	"time"
+
+	"github.com/BlockBrawn/game/game"
+	"github.com/BlockBrawn/game/game/handler_custom"
+	"github.com/df-mc/dragonfly/server/entity"
 
 	"github.com/df-mc/dragonfly/server/block/cube"
 	"github.com/df-mc/dragonfly/server/cmd"

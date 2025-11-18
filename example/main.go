@@ -1,12 +1,13 @@
 package main
 
 import (
-	"github.com/ThronesMC/game/game/command"
-	"github.com/ThronesMC/game/game/handler_custom"
+	"log/slog"
+
+	"github.com/BlockBrawn/game/game/command"
+	"github.com/BlockBrawn/game/game/handler_custom"
 	"github.com/df-mc/dragonfly/server"
 	"github.com/df-mc/dragonfly/server/player/chat"
 	"github.com/df-mc/dragonfly/server/world"
-	"log/slog"
 )
 
 func main() {

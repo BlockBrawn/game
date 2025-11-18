@@ -1,8 +1,9 @@
 package spawn
 
 import (
-	"github.com/ThronesMC/game/game/utils/maputils"
 	"math/rand"
+
+	"github.com/BlockBrawn/game/game/utils/maputils"
 
 	"github.com/google/uuid"
 )

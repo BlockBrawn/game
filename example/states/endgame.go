@@ -2,14 +2,15 @@ package states
 
 import (
 	"fmt"
-	"github.com/ThronesMC/game/game"
-	"github.com/ThronesMC/game/game/participant"
-	"github.com/df-mc/dragonfly/server/player/bossbar"
-	"github.com/df-mc/dragonfly/server/world"
-	"github.com/josscoder/fsmgo/state"
 	"log"
 	"math"
 	"time"
+
+	"github.com/BlockBrawn/game/game"
+	"github.com/BlockBrawn/game/game/participant"
+	"github.com/df-mc/dragonfly/server/player/bossbar"
+	"github.com/df-mc/dragonfly/server/world"
+	"github.com/josscoder/fsmgo/state"
 )
 
 type EndGameState struct {

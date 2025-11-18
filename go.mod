@@ -1,4 +1,4 @@
-module github.com/ThronesMC/game
+module github.com/BlockBrawn/game
 
 go 1.25.0
 

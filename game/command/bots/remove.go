@@ -1,7 +1,7 @@
 package bots
 
 import (
-	"github.com/ThronesMC/game/game/mechanic/bot"
+	"github.com/BlockBrawn/game/game/mechanic/bot"
 	"github.com/df-mc/dragonfly/server/cmd"
 	"github.com/df-mc/dragonfly/server/player"
 	"github.com/df-mc/dragonfly/server/world"

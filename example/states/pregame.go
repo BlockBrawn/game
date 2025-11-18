@@ -2,18 +2,19 @@ package states
 
 import (
 	"fmt"
-	"github.com/ThronesMC/game/example/config"
-	"github.com/ThronesMC/game/game"
-	"github.com/ThronesMC/game/game/mechanic/bot"
-	"github.com/ThronesMC/game/game/mechanic/nametag"
-	"github.com/ThronesMC/game/game/mechanic/spawn"
-	"github.com/ThronesMC/game/game/participant"
-	"github.com/df-mc/dragonfly/server/player/bossbar"
-	"github.com/df-mc/dragonfly/server/world"
-	"github.com/josscoder/fsmgo/state"
 	"log"
 	"math"
 	"time"
+
+	"github.com/BlockBrawn/game/example/config"
+	"github.com/BlockBrawn/game/game"
+	"github.com/BlockBrawn/game/game/mechanic/bot"
+	"github.com/BlockBrawn/game/game/mechanic/nametag"
+	"github.com/BlockBrawn/game/game/mechanic/spawn"
+	"github.com/BlockBrawn/game/game/participant"
+	"github.com/df-mc/dragonfly/server/player/bossbar"
+	"github.com/df-mc/dragonfly/server/world"
+	"github.com/josscoder/fsmgo/state"
 )
 
 type PreGameState struct {

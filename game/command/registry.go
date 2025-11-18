@@ -1,7 +1,7 @@
 package command
 
 import (
-	bots2 "github.com/ThronesMC/game/game/command/bots"
+	bots2 "github.com/BlockBrawn/game/game/command/bots"
 	"github.com/df-mc/dragonfly/server/cmd"
 )
 

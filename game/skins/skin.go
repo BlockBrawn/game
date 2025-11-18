@@ -1,8 +1,9 @@
 package skins
 
 import (
-	"github.com/ThronesMC/game/game/utils/randomskins/skin"
 	"log"
+
+	"github.com/BlockBrawn/game/game/utils/randomskins/skin"
 )
 
 var SkinManager skin.Manager

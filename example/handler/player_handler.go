@@ -1,12 +1,12 @@
 package handler
 
 import (
-	"github.com/ThronesMC/game/example/config"
-	"github.com/ThronesMC/game/game"
-	"github.com/ThronesMC/game/game/handler_custom"
-	"github.com/ThronesMC/game/game/mechanic/cage"
-	"github.com/ThronesMC/game/game/mechanic/spawn"
-	"github.com/ThronesMC/game/game/utils/playerutils"
+	"github.com/BlockBrawn/game/example/config"
+	"github.com/BlockBrawn/game/game"
+	"github.com/BlockBrawn/game/game/handler_custom"
+	"github.com/BlockBrawn/game/game/mechanic/cage"
+	"github.com/BlockBrawn/game/game/mechanic/spawn"
+	"github.com/BlockBrawn/game/game/utils/playerutils"
 	"github.com/df-mc/dragonfly/server/block"
 	"github.com/df-mc/dragonfly/server/block/cube"
 	"github.com/df-mc/dragonfly/server/player"

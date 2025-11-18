@@ -1,8 +1,8 @@
 package settings
 
 import (
-	"github.com/ThronesMC/game/game/modes"
-	"github.com/ThronesMC/game/game/participant"
+	"github.com/BlockBrawn/game/game/modes"
+	"github.com/BlockBrawn/game/game/participant"
 	"github.com/df-mc/dragonfly/server/player"
 	"github.com/df-mc/dragonfly/server/world"
 )

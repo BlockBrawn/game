@@ -3,8 +3,6 @@ package skin
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/ThronesMC/game/game/utils/randomskins/config"
-	"github.com/ThronesMC/game/game/utils/randomskins/utils"
 	"image"
 	"image/draw"
 	"image/png"
@@ -14,6 +12,9 @@ import (
 	"path"
 	"path/filepath"
 	"time"
+
+	"github.com/BlockBrawn/game/game/utils/randomskins/config"
+	"github.com/BlockBrawn/game/game/utils/randomskins/utils"
 )
 
 const (
