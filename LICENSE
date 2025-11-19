@@ -1,120 +1,69 @@
-                    GNU GENERAL PUBLIC LICENSE
-                       Version 3, 29 June 2007
+      BlockBrawn Internal Confidential License v1.2
 
- Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
- Everyone is permitted to copy and distribute verbatim copies
- of this license document, but changing it is not allowed.
+      Copyright (c) 2025 Josscoder and BlockBrawn contributors.
+      All rights reserved. Proprietary & Confidential.
 
-                            Preamble
+      1. Authorized Internal Use Only
+      This software ("Software") may be accessed and used solely by current BlockBrawn employees, founders, and approved contractors under written agreement. No external use, disclosure, or transfer.
 
-  The GNU General Public License is a free, copyleft license for
-software and other kinds of works.
+      2. Internal Rights Granted
+      Authorized Users may internally: run, test, modify, integrate, deploy, and create derivative works for BlockBrawn operations. All derivatives become part of the confidential codebase and are subject to these terms.
 
-  The licenses for most software and other practical works are designed
-to take away your freedom to share and change the works.  By contrast,
-the GNU General Public License is intended to guarantee your freedom to
-share and change all versions of a program--to make sure it remains free
-software for all its users.  We, the Free Software Foundation, use the
-GNU General Public License for most of our software; it applies also to
-any other work released this way by its authors.  You can apply it to
-your programs, too.
+      3. Strict Prohibitions
+      Without prior written consent from BlockBrawn legal or all copyright holders:
+       - No redistribution (public or private) outside BlockBrawn.
+       - No publishing to public repositories, registries, gists, or code hosting platforms.
+       - No sublicensing, resale, lending, leasing, or external access grants.
+       - No offering as a product, SaaS, or service to third parties.
+       - No extraction of components for other projects (internal or external) unless explicitly approved.
+       - No storage on personal devices lacking full-disk encryption & access control.
+       - No automated disclosure via AI training, dataset export, or code suggestion tools to outside parties.
 
-  When we speak of free software, we are referring to freedom, not
-price.  Our General Public Licenses are designed to make sure that you
-have the freedom to distribute copies of free software (and charge for
-them if you wish), that you receive source code or can get it if you
-want it, that you can change the software or use pieces of it in new
-free programs, and that you know you can do these things.
+      4. Ownership & Contributions
+      Original and modified code are jointly owned by original authors and BlockBrawn. External contributions require written assignment or an internal CLA. Do not remove author or license notices.
 
-  To protect your rights, we need to prevent others from denying you
-these rights or asking you to surrender the rights.  Therefore, you have
-certain responsibilities if you distribute copies of the software, or if
-you modify it: responsibilities to respect the freedom of others.
+      5. Third-Party & Open-Source Components
+      Embedded third-party libraries retain their original licenses. Fulfill their obligations independently (e.g., notices, attribution). This License does not override third-party terms.
 
-  For example, if you distribute copies of such a program, whether
-gratis or for a fee, you must pass on to the recipients the same
-freedoms that you received.  You must make sure that they, too, receive
-or can get the source code.  And you must show them these terms so they
-know their rights.
+      6. Confidentiality & Security Measures
+      Treat all source, builds, documentation, configs, and data schemas as confidential trade secrets. Implement MFA, encrypted storage, least-privilege access, and prompt revocation on role changes. Report suspected leaks immediately to security@blockbrawn.com.
 
-  Developers that use the GNU GPL protect your rights with two steps:
-(1) assert copyright on the software, and (2) offer you this License
-giving you legal permission to copy, distribute and/or modify it.
+      7. Code Handling & Derivatives
+      Forks/mirrors must remain private under BlockBrawn control. Derivative internal tools inherit proprietary status. Do not mix this code into open-source repositories without formal approval.
 
-  For the developers' and authors' protection, the GPL clearly explains
-that there is no warranty for this free software.  For both users' and
-authors' sake, the GPL requires that modified versions be marked as
-changed, so that their problems will not be attributed erroneously to
-authors of previous versions.
+      8. Termination
+      Rights terminate automatically upon end of engagement or breach. On termination, promptly delete all non-approved local copies (excluding encrypted organizational backups). BlockBrawn reserves audit rights to verify compliance.
 
-  Some devices are designed to deny users access to install or run
-modified versions of the software inside them, although the manufacturer
-can do so.  This is fundamentally incompatible with the aim of
-protecting users' freedom to change the software.  The systematic
-pattern of such abuse occurs in the area of products for individuals to
-use, which is precisely where it is most unacceptable.  Therefore, we
-have designed this version of the GPL to prohibit the practice for those
-products.  If such problems arise substantially in other domains, we
-stand ready to extend this provision to those domains in future versions
-of the GPL, as needed to protect the freedom of users.
+      9. Non-Reclassification
+      You may not relicense, open-source, or publish the Software. Portions previously released under separate open-source licenses retain those original terms; include required notices.
 
-  Finally, every program is threatened constantly by software patents.
-States should not allow patents to restrict development and use of
-software on general-purpose computers, but in those that do, we wish to
-avoid the special danger that patents applied to a free program could
-make it effectively proprietary.  To prevent this, the GPL assures that
-patents cannot be used to render the program non-free.
+      10. Warranty Disclaimer
+      THE SOFTWARE IS PROVIDED "AS IS" WITHOUT ANY EXPRESS OR IMPLIED WARRANTY, INCLUDING BUT NOT LIMITED TO MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, OR NON-INFRINGEMENT.
 
-  The precise terms and conditions for copying, distribution and
-modification follow.
+      11. Limitation of Liability
+      IN NO EVENT SHALL AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR INDIRECT, SPECIAL, INCIDENTAL, CONSEQUENTIAL, EXEMPLARY, OR PUNITIVE DAMAGES; NOR LOSS OF PROFITS, REVENUE, DATA, OR BUSINESS OPPORTUNITY; ARISING OUT OF USE OR INABILITY TO USE THE SOFTWARE.
 
-                       TERMS AND CONDITIONS
+      12. Audit & Monitoring
+      BlockBrawn may employ automated tooling (logging, scanning, review systems) to monitor adherence. Users must reasonably cooperate with compliance checks.
 
-  0. Definitions.
+      13. Governing Law
+      Governed by the laws of the jurisdiction of BlockBrawn’s principal place of business, excluding conflict-of-law rules.
 
-  "This License" refers to version 3 of the GNU General Public License.
+      14. Amendments
+      Changes require a written document signed by primary copyright holders or authorized legal representative. Verbal modifications are void.
 
-  "Copyright" also means copyright-like laws that apply to other kinds of
-works, such as semiconductor masks.
+      15. Severability
+      If any provision is unenforceable, remaining provisions remain in force. Replace invalid terms with the closest lawful equivalent.
 
-  "The Program" refers to any copyrightable work licensed under this
-License.  Each licensee is addressed as "you".  "Licensees" and
-"recipients" may be individuals or organizations.
+      16. Entire Agreement & No Waiver
+      This License supersedes earlier internal notices. Failure to enforce a provision is not a waiver of future enforcement.
 
-  To "modify" a work means to copy from or adapt all or part of the work
-in a fashion requiring copyright permission, other than the making of an
-exact copy.  The resulting work is called a "modified version" of the
-earlier work or a work "based on" the earlier work.
+      17. Contact
+      For permissions or questions: legal@blockbrawn.com.
 
-  A "covered work" means either the unmodified Program or a work based
-on the Program.
+      By accessing or using the Software internally you acknowledge and agree to these terms.
 
-  To "propagate" a work means to do anything with it that, without
-permission, would make you directly or secondarily liable for
-infringement under applicable copyright law, except executing it on a
-computer or modifying a private copy.  Propagation includes copying,
-distribution (with or without modification), making available to the
-public, and in some countries other activities as well.
-
-  To "convey" a work means any kind of propagation that enables other
-parties to make or receive copies.  Mere interaction with a user through
-a computer network, with no transfer of a copy, is not conveying.
-
-  An interactive user interface displays "Appropriate Legal Notices"
-to the extent that it includes a convenient and prominently visible
-feature that (1) displays an appropriate copyright notice, and (2)
-tells the user that there is no warranty for the work (except to the
-extent that warranties are provided), that licensees may convey the
-work under this License, and how to view a copy of this License.  If
-the interface presents a list of user commands or options, such as a
-menu, a prominent item in the list meets this criterion.
-
-  1. Source Code.
-
-  The "source code" for a work means the preferred form of the work
-for making modifications to it.  "Object code" means any non-source
-form of a work.
-
+      END OF LICENSE
   A "Standard Interface" means an interface that either is an official
 standard defined by a recognized standards body, or, in the case of
 interfaces specified for a particular programming language, one that
