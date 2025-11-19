@@ -3,7 +3,7 @@ module github.com/BlockBrawn/game
 go 1.25.0
 
 require (
-	github.com/df-mc/dragonfly v0.10.6-0.20250915205312-2e9501025724
+	github.com/df-mc/dragonfly v0.10.7
 	github.com/df-mc/npc v1.0.5
 	github.com/go-gl/mathgl v1.2.0
 	github.com/google/uuid v1.6.0
@@ -21,6 +21,7 @@ require (
 	github.com/golang/snappy v1.0.0 // indirect
 	github.com/klauspost/compress v1.18.0 // indirect
 	github.com/muhammadmuzzammil1998/jsonc v1.0.0 // indirect
+	github.com/pelletier/go-toml v1.9.5 // indirect
 	github.com/sandertv/go-raknet v1.14.3-0.20250305181847-6af3e95113d6 // indirect
 	github.com/segmentio/fasthash v1.0.3 // indirect
 	golang.org/x/crypto v0.42.0 // indirect
@@ -30,5 +31,3 @@ require (
 	golang.org/x/oauth2 v0.31.0 // indirect
 	golang.org/x/text v0.29.0 // indirect
 )
-
-replace github.com/df-mc/dragonfly => github.com/Studgi/dragonfly v0.0.0-20250920180421-52e4e0c04e97
