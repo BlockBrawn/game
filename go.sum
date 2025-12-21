@@ -6,6 +6,8 @@ github.com/df-mc/dragonfly v0.10.7 h1:+Arbf7VZR14xwjnFNVYEixFi+WujtsCvDUra2LiRwy
 github.com/df-mc/dragonfly v0.10.7/go.mod h1:1B3NiEGWj0S9U4QlsL58HPvnmgPlaFCm/pCVWdnrMH0=
 github.com/df-mc/dragonfly v0.10.10-0.20251116050402-3f4cdb9c8cd5 h1:tsf7UEXe8gM6ClZ3AtWpc7Go+i03VfRe+fRgkK0dgsw=
 github.com/df-mc/dragonfly v0.10.10-0.20251116050402-3f4cdb9c8cd5/go.mod h1:pL3nqPtOGVdExu3+LkqWRaa89Trdpf22EjCGexqMus8=
+github.com/df-mc/dragonfly v0.10.10-0.20251217065408-8849211bd15f h1:ErN4JFZfkRajujTXPQf3hAqEZ5x9UhM2KxZDSrQYJdo=
+github.com/df-mc/dragonfly v0.10.10-0.20251217065408-8849211bd15f/go.mod h1:CSLDKyAlnORlB1BKVE9uRK5ZeRAyG4Tp7p26PoTVzmQ=
 github.com/df-mc/goleveldb v1.1.9 h1:ihdosZyy5jkQKrxucTQmN90jq/2lUwQnJZjIYIC/9YU=
 github.com/df-mc/goleveldb v1.1.9/go.mod h1:+NHCup03Sci5q84APIA21z3iPZCuk6m6ABtg4nANCSk=
 github.com/df-mc/jsonc v1.0.5 h1:O7oh07kbS5AYY+l2Fji6l4h0iHcdjKbxCtK5VlZlLMU=
@@ -53,6 +55,8 @@ github.com/sandertv/gophertunnel v1.49.0 h1:9FIl4GGYMrFTmBPgkOTUskGWRQHIg4NMpY8J
 github.com/sandertv/gophertunnel v1.49.0/go.mod h1:lmRarAmn25V/+QeiUbUDXeA26bEaNlX1wGEM/rj39ew=
 github.com/sandertv/gophertunnel v1.51.0 h1:16YmOR6AwtreQjbDynFD5kWt7sm+MwdCs79Yl7RGrPc=
 github.com/sandertv/gophertunnel v1.51.0/go.mod h1:IhLg93aMPY/rKgB7lKxTzOZ6i11OgkL0WinVs+gMvlI=
+github.com/sandertv/gophertunnel v1.51.1 h1:NTv8Yt8CI6Hg7xNOOP1b7mtqqScK1k+OPBlmxi+tIio=
+github.com/sandertv/gophertunnel v1.51.1/go.mod h1:IhLg93aMPY/rKgB7lKxTzOZ6i11OgkL0WinVs+gMvlI=
 github.com/segmentio/fasthash v1.0.3 h1:EI9+KE1EwvMLBWwjpRDc+fEM+prwxDYbslddQGtrmhM=
 github.com/segmentio/fasthash v1.0.3/go.mod h1:waKX8l2N8yckOgmSsXJi7x1ZfdKZ4x7KRMzBtS3oedY=
 golang.org/x/crypto v0.42.0 h1:chiH31gIWm57EkTXpwnqf8qeuMUi0yekh6mT2AvFlqI=
