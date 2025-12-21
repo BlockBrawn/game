@@ -32,3 +32,8 @@ require (
 	golang.org/x/oauth2 v0.31.0 // indirect
 	golang.org/x/text v0.29.0 // indirect
 )
+
+replace (
+	github.com/cooldogedev/spectrum-df => github.com/josscoder/spectrum-df v0.0.0-20251221000919-c845bd8bedf1
+	github.com/df-mc/dragonfly => github.com/Studgi/dragonfly v0.0.0-20251221090603-baf8ea6ffacd
+)
