@@ -4,12 +4,11 @@ import (
 	"net"
 	"time"
 
-	"github.com/BlockBrawn/game/game"
-	"github.com/BlockBrawn/game/game/handler_custom"
+	"github.com/blockbrawn/game/game"
+	"github.com/blockbrawn/game/game/handler_custom"
 
 	"github.com/df-mc/dragonfly/server/block/cube"
 	"github.com/df-mc/dragonfly/server/cmd"
-	"github.com/df-mc/dragonfly/server/entity"
 	"github.com/df-mc/dragonfly/server/item"
 	"github.com/df-mc/dragonfly/server/player"
 	"github.com/df-mc/dragonfly/server/player/skin"
@@ -302,7 +301,7 @@ func (cph ChainedPlayerHandler) HandleLecternPageTurn(ctx *player.Context, pos c
 	cph.Next.HandleLecternPageTurn(ctx, pos, oldPage, newPage)
 }
 
-func (cph ChainedPlayerHandler) HandleItemDamage(ctx *player.Context, i item.Stack, damage *int) {
+func (cph ChainedPlayerHandler) HandleItemDamage(ctx *player.Context, i item.Stack, damage int) {
 	if cph.Middle != nil {
 		cph.Middle.HandleItemDamage(ctx, i, damage)
 		if ctx.Cancelled() {
@@ -340,26 +339,6 @@ func (cph ChainedPlayerHandler) HandleItemDrop(ctx *player.Context, s item.Stack
 		}
 	}
 	cph.Next.HandleItemDrop(ctx, s)
-}
-
-func (cph ChainedPlayerHandler) HandleMountEntity(ctx *player.Context, rideable entity.Rideable, seatIndex *int) {
-	if cph.Middle != nil {
-		cph.Middle.HandleMountEntity(ctx, rideable, seatIndex)
-		if ctx.Cancelled() {
-			return
-		}
-	}
-	cph.Next.HandleMountEntity(ctx, rideable, seatIndex)
-}
-
-func (cph ChainedPlayerHandler) HandleDismountEntity(ctx *player.Context, rideable entity.Rideable) {
-	if cph.Middle != nil {
-		cph.Middle.HandleDismountEntity(ctx, rideable)
-		if ctx.Cancelled() {
-			return
-		}
-	}
-	cph.Next.HandleDismountEntity(ctx, rideable)
 }
 
 func (cph ChainedPlayerHandler) HandleTransfer(ctx *player.Context, addr *net.UDPAddr) {

@@ -13,8 +13,8 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/BlockBrawn/game/game/utils/randomskins/config"
-	"github.com/BlockBrawn/game/game/utils/randomskins/utils"
+	"github.com/blockbrawn/game/game/utils/randomskins/config"
+	"github.com/blockbrawn/game/game/utils/randomskins/utils"
 )
 
 const (

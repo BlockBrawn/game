@@ -3,9 +3,9 @@ package team
 import (
 	"fmt"
 
-	"github.com/BlockBrawn/game/game/config"
-	"github.com/BlockBrawn/game/game/participant"
-	"github.com/BlockBrawn/game/game/utils/maputils"
+	"github.com/blockbrawn/game/game/config"
+	"github.com/blockbrawn/game/game/participant"
+	"github.com/blockbrawn/game/game/utils/maputils"
 	"github.com/df-mc/dragonfly/server/item"
 	"github.com/google/uuid"
 )

@@ -1,7 +1,7 @@
 package vote
 
 import (
-	"github.com/BlockBrawn/game/game/utils/maputils"
+	"github.com/blockbrawn/game/game/utils/maputils"
 	"github.com/google/uuid"
 )
 

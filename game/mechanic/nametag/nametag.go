@@ -1,9 +1,9 @@
 package nametag
 
 import (
-	"github.com/BlockBrawn/game/game"
-	"github.com/BlockBrawn/game/game/participant"
-	"github.com/BlockBrawn/game/game/utils/dfutils"
+	"github.com/blockbrawn/game/game"
+	"github.com/blockbrawn/game/game/participant"
+	"github.com/blockbrawn/game/game/utils/dfutils"
 	"github.com/df-mc/dragonfly/server/player"
 	"github.com/df-mc/dragonfly/server/world"
 	"github.com/sandertv/gophertunnel/minecraft/protocol"

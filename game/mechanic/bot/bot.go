@@ -1,7 +1,7 @@
 package bot
 
 import (
-	"github.com/BlockBrawn/game/game/utils/dfutils"
+	"github.com/blockbrawn/game/game/utils/dfutils"
 	"github.com/df-mc/dragonfly/server/block/cube"
 	"github.com/df-mc/dragonfly/server/player"
 	"github.com/df-mc/dragonfly/server/player/skin"

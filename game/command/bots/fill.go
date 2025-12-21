@@ -3,7 +3,7 @@ package bots
 import (
 	"fmt"
 
-	"github.com/BlockBrawn/game/game"
+	"github.com/blockbrawn/game/game"
 	"github.com/df-mc/dragonfly/server/cmd"
 	"github.com/df-mc/dragonfly/server/player"
 	"github.com/df-mc/dragonfly/server/world"

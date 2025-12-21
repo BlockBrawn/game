@@ -1,7 +1,7 @@
 package cage
 
 import (
-	"github.com/BlockBrawn/game/game/utils/maputils"
+	"github.com/blockbrawn/game/game/utils/maputils"
 	"github.com/df-mc/dragonfly/server/block"
 	"github.com/df-mc/dragonfly/server/block/cube"
 	"github.com/df-mc/dragonfly/server/world"

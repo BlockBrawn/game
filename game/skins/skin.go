@@ -3,7 +3,7 @@ package skins
 import (
 	"log"
 
-	"github.com/BlockBrawn/game/game/utils/randomskins/skin"
+	"github.com/blockbrawn/game/game/utils/randomskins/skin"
 )
 
 var SkinManager skin.Manager

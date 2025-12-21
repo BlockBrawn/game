@@ -3,7 +3,7 @@ package spawn
 import (
 	"math/rand"
 
-	"github.com/BlockBrawn/game/game/utils/maputils"
+	"github.com/blockbrawn/game/game/utils/maputils"
 
 	"github.com/google/uuid"
 )

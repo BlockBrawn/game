@@ -1,7 +1,7 @@
 package participant
 
 import (
-	"github.com/BlockBrawn/game/game/config"
+	"github.com/blockbrawn/game/game/config"
 	"github.com/df-mc/dragonfly/server/player"
 	"github.com/df-mc/dragonfly/server/world"
 )

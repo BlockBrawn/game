@@ -3,7 +3,7 @@ package damager
 import (
 	"time"
 
-	"github.com/BlockBrawn/game/game/utils/maputils"
+	"github.com/blockbrawn/game/game/utils/maputils"
 
 	"github.com/df-mc/dragonfly/server/player"
 	"github.com/google/uuid"

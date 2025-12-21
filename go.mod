@@ -1,4 +1,4 @@
-module github.com/BlockBrawn/game
+module github.com/blockbrawn/game
 
 go 1.25.0
 
@@ -20,7 +20,7 @@ require (
 	github.com/df-mc/worldupgrader v1.0.20 // indirect
 	github.com/go-jose/go-jose/v4 v4.1.2 // indirect
 	github.com/golang/snappy v1.0.0 // indirect
-	github.com/klauspost/compress v1.18.1 // indirect
+	github.com/klauspost/compress v1.18.2 // indirect
 	github.com/muhammadmuzzammil1998/jsonc v1.0.0 // indirect
 	github.com/pelletier/go-toml v1.9.5 // indirect
 	github.com/sandertv/go-raknet v1.14.3-0.20250305181847-6af3e95113d6 // indirect
@@ -34,6 +34,6 @@ require (
 )
 
 replace (
-	github.com/cooldogedev/spectrum-df => github.com/josscoder/spectrum-df v0.0.0-20251221000919-c845bd8bedf1
-	github.com/df-mc/dragonfly => github.com/Studgi/dragonfly v0.0.0-20251221090603-baf8ea6ffacd
+    github.com/df-mc/dragonfly => github.com/didntpot/dragonfly v0.0.0-20251220175111-5a1c5d0a6317
+    github.com/sandertv/gophertunnel => github.com/cooldogedev/gophertunnel v0.0.0-20251216175446-7b35fac7a626
 )
