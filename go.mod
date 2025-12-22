@@ -3,13 +3,13 @@ module github.com/blockbrawn/game
 go 1.25.0
 
 require (
-	github.com/df-mc/dragonfly v0.10.10-0.20251217065408-8849211bd15f
+	github.com/df-mc/dragonfly v0.10.10
 	github.com/df-mc/npc v1.0.5
 	github.com/go-gl/mathgl v1.2.0
 	github.com/google/uuid v1.6.0
 	github.com/josscoder/fsmgo v0.0.0-20250819235246-73a9bb9472c9
 	github.com/samber/lo v1.51.0
-	github.com/sandertv/gophertunnel v1.51.1
+	github.com/sandertv/gophertunnel v1.52.0
 )
 
 require (
@@ -31,9 +31,4 @@ require (
 	golang.org/x/net v0.44.0 // indirect
 	golang.org/x/oauth2 v0.31.0 // indirect
 	golang.org/x/text v0.29.0 // indirect
-)
-
-replace (
-    github.com/df-mc/dragonfly => github.com/didntpot/dragonfly v0.0.0-20251220175111-5a1c5d0a6317
-    github.com/sandertv/gophertunnel => github.com/cooldogedev/gophertunnel v0.0.0-20251216175446-7b35fac7a626
 )
