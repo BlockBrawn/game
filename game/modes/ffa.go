@@ -4,7 +4,7 @@ type FFA struct {
 }
 
 func (f FFA) String() string {
-	return "ffa"
+	return "Free For All"
 }
 
 func (f FFA) MinimumTotalPlayers() int {

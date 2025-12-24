@@ -4,7 +4,7 @@ type Normal struct {
 }
 
 func (n Normal) String() string {
-	return "normal"
+	return "Normal"
 }
 
 func (n Normal) MinimumTotalPlayers() int {

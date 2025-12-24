@@ -4,7 +4,7 @@ type Solo struct {
 }
 
 func (s Solo) String() string {
-	return "solo"
+	return "Solo"
 }
 
 func (s Solo) MinimumTotalPlayers() int {
