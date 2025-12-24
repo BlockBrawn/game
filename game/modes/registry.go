@@ -5,6 +5,7 @@ var registry = map[string]Mode{
 	Solo{}.String():   Solo{},
 	Duo{}.String():    Duo{},
 	Squad{}.String():  Squad{},
+	FFA{}.String():    FFA{},
 }
 
 func RegisterMode(mode Mode) {

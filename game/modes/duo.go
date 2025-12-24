@@ -8,7 +8,7 @@ func (d Duo) String() string {
 }
 
 func (d Duo) MinimumTotalPlayers() int {
-	return 4
+	return 2
 }
 
 func (d Duo) MaximumTotalPlayers() int {

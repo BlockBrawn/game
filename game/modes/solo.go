@@ -12,7 +12,7 @@ func (s Solo) MinimumTotalPlayers() int {
 }
 
 func (s Solo) MaximumTotalPlayers() int {
-	return 16
+	return 12
 }
 
 func (s Solo) NumberOfPlayersPerTeam() int {

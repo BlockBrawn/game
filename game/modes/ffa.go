@@ -1,7 +1,6 @@
 package modes
 
 type FFA struct {
-	MaxTotalPlayers int
 }
 
 func (f FFA) String() string {
@@ -9,11 +8,11 @@ func (f FFA) String() string {
 }
 
 func (f FFA) MinimumTotalPlayers() int {
-	return 2
+	return 0
 }
 
 func (f FFA) MaximumTotalPlayers() int {
-	return f.MaxTotalPlayers
+	return 100
 }
 
 func (f FFA) NumberOfPlayersPerTeam() int {

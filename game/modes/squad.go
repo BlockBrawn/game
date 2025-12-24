@@ -8,7 +8,7 @@ func (s Squad) String() string {
 }
 
 func (s Squad) MinimumTotalPlayers() int {
-	return 8
+	return 2
 }
 
 func (s Squad) MaximumTotalPlayers() int {
