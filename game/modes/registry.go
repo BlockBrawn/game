@@ -2,10 +2,6 @@ package modes
 
 var registry = map[string]Mode{
 	Normal{}.String(): Normal{},
-	Solo{}.String():   Solo{},
-	Duo{}.String():    Duo{},
-	Squad{}.String():  Squad{},
-	FFA{}.String():    FFA{},
 }
 
 func RegisterMode(mode Mode) {
