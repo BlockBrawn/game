@@ -1,11 +1,11 @@
 package modes
 
 var registry = map[string]Mode{
-	Normal{}.String(): Normal{},
+	Normal{}.ID(): Normal{},
 }
 
 func RegisterMode(mode Mode) {
-	registry[mode.String()] = mode
+	registry[mode.ID()] = mode
 }
 
 func GetModeFromString(mode string) Mode {
