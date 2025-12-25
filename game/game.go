@@ -268,7 +268,7 @@ func (g *Game) Quit(p *player.Player) {
 	g.Participants.Delete(p.UUID())
 }
 
-func (g *Game) Stop(tx *world.Tx) {
+func (g *Game) Stop() {
 	g.StateSeries.End()
 
 	if err := os.RemoveAll(g.WorldFolder); err != nil {
