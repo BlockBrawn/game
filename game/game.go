@@ -77,6 +77,18 @@ func (g *Game) Start() error {
 }
 
 func (g *Game) LoadGameMapWithConfig(config config.MapData) error {
+	worldsDir := path.Join(".", "worlds")
+	if entries, err := os.ReadDir(worldsDir); err == nil {
+		for _, entry := range entries {
+			if entry.IsDir() {
+				oldWorldPath := filepath.Join(worldsDir, entry.Name())
+				if err := os.RemoveAll(oldWorldPath); err != nil {
+					fmt.Println("warning: failed to remove old world folder:", oldWorldPath, err)
+				}
+			}
+		}
+	}
+
 	if g.MapLoaded {
 		return errors.New("map already loaded")
 	}
@@ -96,18 +108,6 @@ func (g *Game) LoadGameMapWithConfig(config config.MapData) error {
 
 	if err := json.Unmarshal(rawConfig, config); err != nil {
 		return fmt.Errorf("failed unmarshalling config.json: %w", err)
-	}
-
-	worldsDir := path.Join(".", "worlds")
-	if entries, err := os.ReadDir(worldsDir); err == nil {
-		for _, entry := range entries {
-			if entry.IsDir() {
-				oldWorldPath := filepath.Join(worldsDir, entry.Name())
-				if err := os.RemoveAll(oldWorldPath); err != nil {
-					fmt.Println("warning: failed to remove old world folder:", oldWorldPath, err)
-				}
-			}
-		}
 	}
 
 	g.WorldFolder = path.Join(".", "worlds", g.id.String())
@@ -278,4 +278,33 @@ func (g *Game) Quit(p *player.Player) {
 
 func (g *Game) Stop() {
 	g.StateSeries.End()
+
+	g.Participants = maputils.NewMap[uuid.UUID, *participant.Participant]()
+
+	for _, t := range g.Teams {
+		t.Teammates = maputils.NewMap[uuid.UUID, *participant.Participant]()
+	}
+
+	g.World = nil
+	g.WorldFolder = ""
+	g.MapLoaded = false
+	g.mapConfig = nil
+}
+
+func (g *Game) Restart(config config.MapData, states []state.State) error {
+	g.Stop()
+
+	g.id = uuid.New()
+
+	g.StateSeries = state.NewScheduledStateSeries(states)
+
+	if err := g.LoadGameMapWithConfig(config); err != nil {
+		return fmt.Errorf("failed to load map during restart: %w", err)
+	}
+
+	if err := g.Start(); err != nil {
+		return fmt.Errorf("failed to start game during restart: %w", err)
+	}
+
+	return nil
 }
