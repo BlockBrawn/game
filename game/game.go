@@ -9,7 +9,6 @@ import (
 	"os"
 	"path"
 	"path/filepath"
-	"time"
 
 	"github.com/blockbrawn/game/game/config"
 	"github.com/blockbrawn/game/game/handler_custom"
