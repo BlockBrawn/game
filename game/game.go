@@ -271,10 +271,6 @@ func (g *Game) Quit(p *player.Player) {
 func (g *Game) Stop(tx *world.Tx) {
 	g.StateSeries.End()
 
-	g.ParticipantsCallback(func(pt *participant.Participant) {
-		pt.TXPlayer(tx).Disconnect("game server shutdown")
-	})
-
 	if err := os.RemoveAll(g.WorldFolder); err != nil {
 		fmt.Println("warning: failed to remove world folder:", err)
 	}
