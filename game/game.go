@@ -275,36 +275,3 @@ func (g *Game) Join(p *player.Player) error {
 func (g *Game) Quit(p *player.Player) {
 	g.Participants.Delete(p.UUID())
 }
-
-func (g *Game) Stop() {
-	g.StateSeries.End()
-
-	g.Participants = maputils.NewMap[uuid.UUID, *participant.Participant]()
-
-	for _, t := range g.Teams {
-		t.Teammates = maputils.NewMap[uuid.UUID, *participant.Participant]()
-	}
-
-	g.World = nil
-	g.WorldFolder = ""
-	g.MapLoaded = false
-	g.mapConfig = nil
-}
-
-func (g *Game) Restart(config config.MapData, states []state.State) error {
-	g.Stop()
-
-	g.id = uuid.New()
-
-	g.StateSeries = state.NewScheduledStateSeries(states)
-
-	if err := g.LoadGameMapWithConfig(config); err != nil {
-		return fmt.Errorf("failed to load map during restart: %w", err)
-	}
-
-	if err := g.Start(); err != nil {
-		return fmt.Errorf("failed to start game during restart: %w", err)
-	}
-
-	return nil
-}
