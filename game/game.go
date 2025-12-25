@@ -61,7 +61,7 @@ func NewGame(settings *settings.Settings, teams []*team.Team, states []state.Sta
 		PlayerHandler:    playerHandler,
 		InventoryHandler: invHandler,
 		WorldHandler: worldHandler,
-		StateSeries:      state.NewScheduledStateSeries(states, 1*time.Second),
+		StateSeries:      state.NewScheduledStateSeries(states),
 		Participants:     maputils.NewMap[uuid.UUID, *participant.Participant](),
 	}
 	gameInstance = game
