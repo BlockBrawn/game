@@ -36,7 +36,7 @@ type Game struct {
 
 	PlayerHandler    handler_custom.JoinHandler
 	InventoryHandler inventory.Handler
-	WorldHandler world.Handler
+	WorldHandler     world.Handler
 
 	StateSeries  *state.ScheduledStateSeries
 	Participants *maputils.Map[uuid.UUID, *participant.Participant]
@@ -59,7 +59,7 @@ func NewGame(settings *settings.Settings, teams []*team.Team, states []state.Sta
 		Teams:            teams,
 		PlayerHandler:    playerHandler,
 		InventoryHandler: invHandler,
-		WorldHandler: worldHandler,
+		WorldHandler:     worldHandler,
 		StateSeries:      state.NewScheduledStateSeries(states),
 		Participants:     maputils.NewMap[uuid.UUID, *participant.Participant](),
 	}
@@ -98,11 +98,19 @@ func (g *Game) LoadGameMapWithConfig(config config.MapData) error {
 		return fmt.Errorf("failed unmarshalling config.json: %w", err)
 	}
 
-	g.WorldFolder = path.Join(".", "worlds", g.id.String())
-
-	if err := os.RemoveAll(g.WorldFolder); err != nil {
-		return fmt.Errorf("failed to remove existing world folder: %w", err)
+	worldsDir := path.Join(".", "worlds")
+	if entries, err := os.ReadDir(worldsDir); err == nil {
+		for _, entry := range entries {
+			if entry.IsDir() {
+				oldWorldPath := filepath.Join(worldsDir, entry.Name())
+				if err := os.RemoveAll(oldWorldPath); err != nil {
+					fmt.Println("warning: failed to remove old world folder:", oldWorldPath, err)
+				}
+			}
+		}
 	}
+
+	g.WorldFolder = path.Join(".", "worlds", g.id.String())
 
 	if err := ziputils.UnZipFile(worldZip, g.WorldFolder); err != nil {
 		return fmt.Errorf("failed to copy world: %w", err)
@@ -270,8 +278,4 @@ func (g *Game) Quit(p *player.Player) {
 
 func (g *Game) Stop() {
 	g.StateSeries.End()
-
-	if err := os.RemoveAll(g.WorldFolder); err != nil {
-		fmt.Println("warning: failed to remove world folder:", err)
-	}
 }
