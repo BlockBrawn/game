@@ -18,16 +18,16 @@ func (rsc RemoveSubCommand) Run(_ cmd.Source, output *cmd.Output, tx *world.Tx) 
 
 	if botName == "all" {
 		bot.RemoveAllBots(tx)
-		output.Print(text.Colourf("<green>All bots removed successfully.</green>"))
+		output.Print(text.Colourf("<green>Todos los bots fueron eliminados exitosamente.</green>"))
 		return
 	}
 
 	if ok := bot.RemoveBot(tx, botName); ok {
-		output.Print(text.Colourf("<green>Bot %s removed successfully.</green>", botName))
+		output.Print(text.Colourf("<green>Bot %s eliminado exitosamente.</green>", botName))
 		return
 	}
 
-	output.Print(text.Colourf("<yellow>No bot found with the name '%s'.</yellow>", botName))
+	output.Print(text.Colourf("<yellow>No se encontró ningún bot con el nombre '%s'.</yellow>", botName))
 }
 
 type bots string

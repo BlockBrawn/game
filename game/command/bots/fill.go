@@ -14,11 +14,7 @@ type FillSubCommand struct {
 }
 
 func (asc FillSubCommand) Run(source cmd.Source, output *cmd.Output, tx *world.Tx) {
-	p, ok := source.(*player.Player)
-	if !ok {
-		output.Error("Must be a player")
-		return
-	}
+	p := source.(*player.Player)
 
 	g := game.GetGame()
 	needed := g.Settings.Mode.MaximumTotalPlayers() - g.ParticipantLen()
