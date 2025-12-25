@@ -8,31 +8,31 @@ import (
 func RegisterDevCommands() {
 	cmd.Register(cmd.New(
 		"pause",
-		"Pause your game",
+		"Pausar tu juego",
 		nil,
 		PauseCommand{},
 	))
 	cmd.Register(cmd.New(
 		"resume",
-		"Resume your game",
+		"Reanudar tu juego",
 		nil,
 		ResumeCommand{},
 	))
 	cmd.Register(cmd.New(
 		"skip",
-		"Skip to next state",
+		"Saltar al siguiente estado",
 		nil,
 		SkipCommand{},
 	))
 	cmd.Register(cmd.New(
 		"location",
-		"Show your position",
+		"Mostrar tu posición",
 		[]string{"loc"},
 		LocationCommand{},
 	))
 	cmd.Register(cmd.New(
 		"bots",
-		"Manage game bots",
+		"Administrar bots del juego",
 		nil,
 		bots2.AddSubCommand{},
 		bots2.RemoveSubCommand{},

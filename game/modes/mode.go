@@ -1,7 +1,8 @@
 package modes
 
 type Mode interface {
-	String() string
+	ID() string
+	Name() string
 	MinimumTotalPlayers() int
 	MaximumTotalPlayers() int
 	NumberOfPlayersPerTeam() int

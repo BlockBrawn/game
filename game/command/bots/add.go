@@ -23,11 +23,7 @@ type AddSubCommand struct {
 }
 
 func (asc AddSubCommand) Run(source cmd.Source, output *cmd.Output, tx *world.Tx) {
-	p, ok := source.(*player.Player)
-	if !ok {
-		output.Error("Must be a player")
-		return
-	}
+	p := source.(*player.Player)
 
 	number, ok := asc.Number.Load()
 	if number <= 0 || !ok {
@@ -38,12 +34,12 @@ func (asc AddSubCommand) Run(source cmd.Source, output *cmd.Output, tx *world.Tx
 	needed := g.Settings.Mode.MaximumTotalPlayers() - g.ParticipantLen()
 
 	if needed <= 0 {
-		output.Error("No bots needed, game is already full.")
+		output.Error("No se necesitan bots, el juego ya está lleno.")
 		return
 	}
 
 	if number > needed {
-		output.Print(text.Colourf("<yellow>You can only add %d bot(s) right now.</yellow>", needed))
+		output.Print(text.Colourf("<yellow>Solo puedes agregar %d bot(s) en este momento.</yellow>", needed))
 		number = needed
 	}
 
@@ -63,5 +59,5 @@ func (asc AddSubCommand) Run(source cmd.Source, output *cmd.Output, tx *world.Tx
 		}
 	}()
 
-	output.Print(text.Colourf("<green>%d bot(s) added successfully</green>", number))
+	output.Print(text.Colourf("<green>%d bot(s) agregado(s) exitosamente</green>", number))
 }

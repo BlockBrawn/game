@@ -9,7 +9,6 @@ import (
 	"os"
 	"path"
 	"path/filepath"
-	"time"
 
 	"github.com/blockbrawn/game/game/config"
 	"github.com/blockbrawn/game/game/handler_custom"
@@ -59,7 +58,7 @@ func NewGame(settings *settings.Settings, teams []*team.Team, states []state.Sta
 		Teams:            teams,
 		PlayerHandler:    playerHandler,
 		InventoryHandler: invHandler,
-		StateSeries:      state.NewScheduledStateSeries(states, 1*time.Second),
+		StateSeries:      state.NewScheduledStateSeries(states),
 		Participants:     maputils.NewMap[uuid.UUID, *participant.Participant](),
 	}
 	gameInstance = game
@@ -76,6 +75,18 @@ func (g *Game) Start() error {
 }
 
 func (g *Game) LoadGameMapWithConfig(config config.MapData) error {
+	worldsDir := path.Join(".", "worlds")
+	if entries, err := os.ReadDir(worldsDir); err == nil {
+		for _, entry := range entries {
+			if entry.IsDir() {
+				oldWorldPath := filepath.Join(worldsDir, entry.Name())
+				if err := os.RemoveAll(oldWorldPath); err != nil {
+					fmt.Println("warning: failed to remove old world folder:", oldWorldPath, err)
+				}
+			}
+		}
+	}
+
 	if g.MapLoaded {
 		return errors.New("map already loaded")
 	}
@@ -98,10 +109,6 @@ func (g *Game) LoadGameMapWithConfig(config config.MapData) error {
 	}
 
 	g.WorldFolder = path.Join(".", "worlds", g.id.String())
-
-	if err := os.RemoveAll(g.WorldFolder); err != nil {
-		return fmt.Errorf("failed to remove existing world folder: %w", err)
-	}
 
 	if err := ziputils.UnZipFile(worldZip, g.WorldFolder); err != nil {
 		return fmt.Errorf("failed to copy world: %w", err)
@@ -265,16 +272,4 @@ func (g *Game) Join(p *player.Player) error {
 
 func (g *Game) Quit(p *player.Player) {
 	g.Participants.Delete(p.UUID())
-}
-
-func (g *Game) Stop(tx *world.Tx) {
-	g.StateSeries.End()
-
-	g.ParticipantsCallback(func(pt *participant.Participant) {
-		pt.TXPlayer(tx).Disconnect("game server shutdown")
-	})
-
-	if err := os.RemoveAll(g.WorldFolder); err != nil {
-		fmt.Println("warning: failed to remove world folder:", err)
-	}
 }

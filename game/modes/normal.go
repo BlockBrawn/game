@@ -3,8 +3,12 @@ package modes
 type Normal struct {
 }
 
-func (n Normal) String() string {
+func (n Normal) ID() string {
 	return "normal"
+}
+
+func (n Normal) Name() string {
+	return "Normal"
 }
 
 func (n Normal) MinimumTotalPlayers() int {
