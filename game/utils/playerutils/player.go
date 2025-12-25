@@ -3,6 +3,7 @@ package playerutils
 import (
 	"github.com/df-mc/dragonfly/server/item"
 	"github.com/df-mc/dragonfly/server/player"
+	"github.com/go-gl/mathgl/mgl64"
 )
 
 type ResetOpts struct {
@@ -84,4 +85,14 @@ func ResetPlayer(p *player.Player, opts *ResetOpts) {
 	if opts.ResetMobility {
 		p.SetMobile()
 	}
+}
+
+func SetRotation(p *player.Player, yaw, pitch float64) {
+	currentRotation := p.Rotation()
+
+	deltaYaw := yaw - currentRotation.Yaw()
+	deltaPitch := pitch - currentRotation.Pitch()
+
+	p.Move(mgl64.Vec3{}, deltaYaw, deltaPitch)
+	p.Teleport(p.Position())
 }
