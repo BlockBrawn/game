@@ -140,6 +140,16 @@ func (g *Game) GetParticipants() iter.Seq[*participant.Participant] {
 	}
 }
 
+func (g *Game) GetStateParticipants(s participant.State) iter.Seq[*participant.Participant] {
+	return func(yield func(*participant.Participant) bool) {
+		for _, par := range g.Participants.Map() {
+			if !yield(par) && par.InState(s) {
+				return
+			}
+		}
+	}
+}
+
 func (g *Game) ParticipantLen() int {
 	return g.Participants.Len()
 }
