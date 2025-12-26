@@ -160,24 +160,6 @@ func (g *Game) ParticipantsCallback(fn func(pt *participant.Participant)) {
 	}
 }
 
-func (g *Game) BroadcastMessage(tx *world.Tx, msg string) {
-	g.ParticipantsCallback(func(pt *participant.Participant) {
-		pt.TXPlayer(tx).Message(text.Colourf("%s", msg))
-	})
-}
-
-func (g *Game) BroadcastMessagef(tx *world.Tx, format string, args ...any) {
-	g.ParticipantsCallback(func(pt *participant.Participant) {
-		pt.TXPlayer(tx).Message(text.Colourf(format, args...))
-	})
-}
-
-func (g *Game) BroadcastTitle(tx *world.Tx, t title.Title) {
-	g.ParticipantsCallback(func(pt *participant.Participant) {
-		pt.TXPlayer(tx).SendTitle(t)
-	})
-}
-
 func (g *Game) RandomAvailableTeam() (*team.Team, bool) {
 	var available []*team.Team
 	for _, t := range g.Teams {
