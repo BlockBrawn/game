@@ -18,10 +18,8 @@ import (
 	"github.com/blockbrawn/game/game/utils/maputils"
 	"github.com/blockbrawn/game/game/utils/ziputils"
 	"github.com/df-mc/dragonfly/server/item/inventory"
-	"github.com/sandertv/gophertunnel/minecraft/text"
 
 	"github.com/df-mc/dragonfly/server/player"
-	"github.com/df-mc/dragonfly/server/player/title"
 	"github.com/df-mc/dragonfly/server/world"
 	"github.com/google/uuid"
 	"github.com/josscoder/fsmgo/state"
