@@ -10,11 +10,7 @@ import (
 type LocationCommand struct{}
 
 func (lc LocationCommand) Run(source cmd.Source, output *cmd.Output, _ *world.Tx) {
-	p, ok := source.(*player.Player)
-	if !ok {
-		output.Error("Debes ser un jugador")
-		return
-	}
+	p := source.(*player.Player)
 
 	pos := p.Position()
 	rot := p.Rotation()
