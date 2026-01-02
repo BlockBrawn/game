@@ -1,9 +1,9 @@
 package damager
 
 import (
-	"github.com/ThronesMC/game/game/utils/maputils"
 	"time"
 
+	"github.com/blockbrawn/game/game/utils/maputils"
 	"github.com/df-mc/dragonfly/server/player"
 	"github.com/df-mc/dragonfly/server/world"
 	"github.com/google/uuid"
