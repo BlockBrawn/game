@@ -1,9 +1,12 @@
 package playerutils
 
 import (
+	"github.com/blockbrawn/game/game/utils/dfutils"
 	"github.com/df-mc/dragonfly/server/item"
 	"github.com/df-mc/dragonfly/server/player"
+	"github.com/go-gl/mathgl/mgl32"
 	"github.com/go-gl/mathgl/mgl64"
+	"github.com/sandertv/gophertunnel/minecraft/protocol/packet"
 )
 
 type ResetOpts struct {
@@ -95,4 +98,15 @@ func SetRotation(p *player.Player, yaw, pitch float64) {
 
 	p.Move(mgl64.Vec3{}, deltaYaw, deltaPitch)
 	p.Teleport(p.Position())
+}
+
+func PlaySound(p *player.Player, sound string, volume, pitch float64) {
+	pos := p.Position()
+	pk := &packet.PlaySound{
+		SoundName: sound,
+		Position:  mgl32.Vec3{float32(pos.X()), float32(pos.Y()), float32(pos.Z())},
+		Volume:    float32(volume),
+		Pitch:     float32(pitch),
+	}
+	dfutils.WritePacket(dfutils.Session(p), pk)
 }
