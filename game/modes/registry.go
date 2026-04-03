@@ -1,15 +1,27 @@
 package modes
 
-var registry = map[string]Mode{
-	Normal{}.ID(): Normal{},
+import "github.com/blockbrawn/game/game/utils/maputils"
+
+type key struct {
+	gameID string
+	modeID string
 }
 
-func RegisterMode(mode Mode) {
-	registry[mode.ID()] = mode
+var registry = maputils.NewMap[key, Mode]()
+
+func RegisterMode(gameID string, mode Mode) {
+	k := key{
+		gameID: gameID,
+		modeID: mode.ID(),
+	}
+	registry.Store(k, mode)
 }
 
-func GetModeFromString(mode string) Mode {
-	if m, ok := registry[mode]; ok {
+func GetMode(gameID, modeID string) Mode {
+	if m, ok := registry.Load(key{
+		gameID: gameID,
+		modeID: modeID,
+	}); ok {
 		return m
 	}
 	return nil
