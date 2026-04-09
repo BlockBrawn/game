@@ -4,10 +4,12 @@ import (
 	"math/rand"
 
 	"github.com/blockbrawn/game/utils/maputils"
+
+	"github.com/google/uuid"
 )
 
 var (
-	occupiedSpawns = maputils.NewMap[string, map[int]string]()
+	occupiedSpawns = maputils.NewMap[string, map[int]uuid.UUID]()
 	spawnConfig    = make(map[string][][]float64)
 )
 
@@ -16,17 +18,17 @@ func InitSpawns(config map[string][][]float64) {
 	spawnConfig = config
 	for teamID := range config {
 		if _, ok := occupiedSpawns.Load(teamID); !ok {
-			occupiedSpawns.Store(teamID, make(map[int]string))
+			occupiedSpawns.Store(teamID, make(map[int]uuid.UUID))
 		}
 	}
 }
 
 // GetFreeSpawnIndex returns a free spawn index in the given team for a player.
-func GetFreeSpawnIndex(teamID string, playerXUID string) int {
+func GetFreeSpawnIndex(teamID string, playerUUID uuid.UUID) int {
 	if teamSpawns, ok := occupiedSpawns.Load(teamID); ok {
 		// If the player already has a spawn assigned in this team
 		for idx, u := range teamSpawns {
-			if u == playerXUID {
+			if u == playerUUID {
 				return idx
 			}
 		}
@@ -45,24 +47,24 @@ func GetFreeSpawnIndex(teamID string, playerXUID string) int {
 		}
 
 		idx := free[rand.Intn(len(free))]
-		teamSpawns[idx] = playerXUID
+		teamSpawns[idx] = playerUUID
 		return idx
 	}
 	return -1
 }
 
 // SetSpawnOccupied marks a spawn as occupied by a player.
-func SetSpawnOccupied(teamID string, idx int, playerXUID string) {
+func SetSpawnOccupied(teamID string, idx int, playerUUID uuid.UUID) {
 	if teamSpawns, ok := occupiedSpawns.Load(teamID); ok {
-		teamSpawns[idx] = playerXUID
+		teamSpawns[idx] = playerUUID
 	}
 }
 
 // FreePlayerSpawn frees the spawn occupied by a player in a team.
-func FreePlayerSpawn(teamID string, playerXUID string) {
+func FreePlayerSpawn(teamID string, playerUUID uuid.UUID) {
 	if teamSpawns, ok := occupiedSpawns.Load(teamID); ok {
 		for idx, v := range teamSpawns {
-			if v == playerXUID {
+			if v == playerUUID {
 				delete(teamSpawns, idx)
 				break
 			}
