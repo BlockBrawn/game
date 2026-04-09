@@ -13,7 +13,7 @@ type FillSubCommand struct {
 	Fill cmd.SubCommand `cmd:"fill"`
 }
 
-func (asc FillSubCommand) Run(source cmd.Source, output *cmd.Output, tx *world.Tx) {
+func (asc FillSubCommand) Run(source cmd.Source, _ *cmd.Output, _ *world.Tx) {
 	p := source.(*player.Player)
 
 	g := game.GetGame()

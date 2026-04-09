@@ -2,7 +2,6 @@ package vote
 
 import (
 	"github.com/blockbrawn/game/utils/maputils"
-	"github.com/google/uuid"
 )
 
 var (
@@ -10,7 +9,7 @@ var (
 	votes = maputils.NewMap[string, map[string]int]()
 
 	// userVote stores which option each player voted for in each pollID
-	userVote = maputils.NewMap[string, map[uuid.UUID]string]()
+	userVote = maputils.NewMap[string, map[string]string]()
 )
 
 // InitPoll initializes a poll with empty options.
@@ -21,34 +20,34 @@ func InitPoll(pollID string, options []string) {
 			optionMap[opt] = 0
 		}
 		votes.Store(pollID, optionMap)
-		userVote.Store(pollID, make(map[uuid.UUID]string))
+		userVote.Store(pollID, make(map[string]string))
 	}
 }
 
 // CastVote registers a player's vote for a poll.
-func CastVote(pollID string, playerUUID uuid.UUID, option string) {
+func CastVote(pollID string, playerXUID string, option string) {
 	if pollVotes, ok := votes.Load(pollID); ok {
 		if pollUserVotes, ok := userVote.Load(pollID); ok {
 			// If the player already voted, decrease the previous option count
-			if oldOption, voted := pollUserVotes[playerUUID]; voted {
+			if oldOption, voted := pollUserVotes[playerXUID]; voted {
 				pollVotes[oldOption]--
 			}
 			// Register the new vote
 			pollVotes[option]++
-			pollUserVotes[playerUUID] = option
+			pollUserVotes[playerXUID] = option
 		}
 	}
 }
 
 // RemoveVote removes a player's vote from a poll.
-func RemoveVote(pollID string, playerUUID uuid.UUID) {
+func RemoveVote(pollID string, playerXUID string) {
 	if pollVotes, ok := votes.Load(pollID); ok {
 		if pollUserVotes, ok := userVote.Load(pollID); ok {
-			if option, voted := pollUserVotes[playerUUID]; voted {
+			if option, voted := pollUserVotes[playerXUID]; voted {
 				// Decrease the option count
 				pollVotes[option]--
 				// Remove the player's vote record
-				delete(pollUserVotes, playerUUID)
+				delete(pollUserVotes, playerXUID)
 			}
 		}
 	}

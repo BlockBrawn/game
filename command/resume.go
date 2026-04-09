@@ -10,7 +10,7 @@ import (
 type ResumeCommand struct {
 }
 
-func (rc ResumeCommand) Run(source cmd.Source, output *cmd.Output, _ *world.Tx) {
+func (rc ResumeCommand) Run(_ cmd.Source, output *cmd.Output, _ *world.Tx) {
 	series := game.GetGame().StateSeries
 
 	if !series.IsPaused() {

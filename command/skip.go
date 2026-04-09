@@ -10,7 +10,7 @@ import (
 type SkipCommand struct {
 }
 
-func (sc SkipCommand) Run(source cmd.Source, output *cmd.Output, _ *world.Tx) {
+func (sc SkipCommand) Run(_ cmd.Source, output *cmd.Output, _ *world.Tx) {
 	game.GetGame().StateSeries.Skip()
 	output.Print(text.Colourf("<green>El juego ha saltado al siguiente estado exitosamente</green>"))
 }

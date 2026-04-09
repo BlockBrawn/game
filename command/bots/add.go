@@ -22,7 +22,7 @@ type AddSubCommand struct {
 	Number cmd.Optional[int] `cmd:"number"`
 }
 
-func (asc AddSubCommand) Run(source cmd.Source, output *cmd.Output, tx *world.Tx) {
+func (asc AddSubCommand) Run(source cmd.Source, output *cmd.Output, _ *world.Tx) {
 	p := source.(*player.Player)
 
 	number, ok := asc.Number.Load()

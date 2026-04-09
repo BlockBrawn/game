@@ -10,7 +10,7 @@ import (
 type PauseCommand struct {
 }
 
-func (pc PauseCommand) Run(source cmd.Source, output *cmd.Output, _ *world.Tx) {
+func (pc PauseCommand) Run(_ cmd.Source, output *cmd.Output, _ *world.Tx) {
 	series := game.GetGame().StateSeries
 
 	if series.IsPaused() {
