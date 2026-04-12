@@ -31,7 +31,7 @@ func (asc AddSubCommand) Run(source cmd.Source, output *cmd.Output, _ *world.Tx)
 	}
 
 	g := game.GetGame()
-	needed := g.Settings.Mode.MaximumTotalPlayers() - g.ParticipantLen()
+	needed := g.Settings.Mode.MaximumTotalPlayers() - g.GetParticipantLen()
 
 	if needed <= 0 {
 		output.Error("No se necesitan bots, el juego ya está lleno.")

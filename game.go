@@ -140,7 +140,7 @@ func (g *Game) GetParticipants() iter.Seq[*participant.Participant] {
 	}
 }
 
-func (g *Game) GetStateParticipants(s participant.State) iter.Seq[*participant.Participant] {
+func (g *Game) GetStateParticipantsByState(s participant.State) iter.Seq[*participant.Participant] {
 	return func(yield func(*participant.Participant) bool) {
 		for _, par := range g.Participants.Map() {
 			if par.InState(s) {
@@ -152,16 +152,26 @@ func (g *Game) GetStateParticipants(s participant.State) iter.Seq[*participant.P
 	}
 }
 
-func (g *Game) ParticipantLen() int {
+func (g *Game) GetParticipantLen() int {
 	return g.Participants.Len()
 }
 
+func (g *Game) GetParticipantLenByState(s participant.State) int {
+	count := 0
+	for _, par := range g.Participants.Map() {
+		if par.InState(s) {
+			count++
+		}
+	}
+	return count
+}
+
 func (g *Game) HasEnoughPlayers() bool {
-	return g.ParticipantLen() >= g.Settings.Mode.MinimumTotalPlayers()
+	return g.GetParticipantLen() >= g.Settings.Mode.MinimumTotalPlayers()
 }
 
 func (g *Game) IsFull() bool {
-	return g.Settings.Mode.MaximumTotalPlayers() != -1 && g.ParticipantLen() >= g.Settings.Mode.MaximumTotalPlayers()
+	return g.Settings.Mode.MaximumTotalPlayers() != -1 && g.GetParticipantLen() >= g.Settings.Mode.MaximumTotalPlayers()
 }
 
 func (g *Game) ParticipantsCallback(fn func(pt *participant.Participant)) {
@@ -170,7 +180,15 @@ func (g *Game) ParticipantsCallback(fn func(pt *participant.Participant)) {
 	}
 }
 
-func (g *Game) RandomAvailableTeam() (*team.Team, bool) {
+func (g *Game) ParticipantsCallbackByState(s participant.State, fn func(pt *participant.Participant)) {
+	for _, par := range g.Participants.Map() {
+		if par.InState(s) {
+			fn(par)
+		}
+	}
+}
+
+func (g *Game) GetRandomAvailableTeam() (*team.Team, bool) {
 	var available []*team.Team
 	for _, t := range g.Teams {
 		if t.Teammates.Len() < g.Settings.Mode.NumberOfPlayersPerTeam() {
@@ -185,7 +203,7 @@ func (g *Game) RandomAvailableTeam() (*team.Team, bool) {
 	return available[rand.Intn(len(available))], true
 }
 
-func (g *Game) BalancedAvailableTeam() (*team.Team, bool) {
+func (g *Game) GetBalancedAvailableTeam() (*team.Team, bool) {
 	var bestTeam *team.Team
 	minCount := g.Settings.Mode.NumberOfPlayersPerTeam() + 1
 

@@ -17,7 +17,7 @@ func (asc FillSubCommand) Run(source cmd.Source, _ *cmd.Output, _ *world.Tx) {
 	p := source.(*player.Player)
 
 	g := game.GetGame()
-	needed := g.Settings.Mode.MaximumTotalPlayers() - g.ParticipantLen()
+	needed := g.Settings.Mode.MaximumTotalPlayers() - g.GetParticipantLen()
 
 	p.ExecuteCommand(fmt.Sprintf("/bots add %d", needed))
 }
