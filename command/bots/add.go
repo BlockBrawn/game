@@ -9,6 +9,7 @@ import (
 	"github.com/blockbrawn/game"
 	"github.com/blockbrawn/game/handler_custom"
 	"github.com/blockbrawn/game/mechanic/bot"
+	"github.com/blockbrawn/game/participant"
 	"github.com/blockbrawn/game/skins"
 	"github.com/df-mc/dragonfly/server/cmd"
 	"github.com/df-mc/dragonfly/server/player"
@@ -31,7 +32,7 @@ func (asc AddSubCommand) Run(source cmd.Source, output *cmd.Output, _ *world.Tx)
 	}
 
 	g := game.GetGame()
-	needed := g.Settings.Mode.MaximumTotalPlayers() - g.GetParticipantLen()
+	needed := g.Settings.Mode.MaximumTotalPlayers() - g.GetParticipantLenByState(participant.StateAlive)
 
 	if needed <= 0 {
 		output.Error("No se necesitan bots, el juego ya está lleno.")

@@ -167,11 +167,11 @@ func (g *Game) GetParticipantLenByState(s participant.State) int {
 }
 
 func (g *Game) HasEnoughPlayers() bool {
-	return g.GetParticipantLen() >= g.Settings.Mode.MinimumTotalPlayers()
+	return g.GetParticipantLenByState(participant.StateAlive) >= g.Settings.Mode.MinimumTotalPlayers()
 }
 
 func (g *Game) IsFull() bool {
-	return g.Settings.Mode.MaximumTotalPlayers() != -1 && g.GetParticipantLen() >= g.Settings.Mode.MaximumTotalPlayers()
+	return g.Settings.Mode.MaximumTotalPlayers() != -1 && g.GetParticipantLenByState(participant.StateAlive) >= g.Settings.Mode.MaximumTotalPlayers()
 }
 
 func (g *Game) ParticipantsCallback(fn func(pt *participant.Participant)) {
