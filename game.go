@@ -33,6 +33,7 @@ type Game struct {
 	Teams    []*team.Team
 
 	PlayerHandler    handler_custom.JoinHandler
+	WorldHandler     world.Handler
 	InventoryHandler inventory.Handler
 
 	StateSeries  *state.ScheduledStateSeries
@@ -45,7 +46,7 @@ type Game struct {
 	WorldFolder string
 }
 
-func NewGame(settings *settings.Settings, teams []*team.Team, states []state.State, playerHandler handler_custom.JoinHandler, invHandler inventory.Handler) *Game {
+func NewGame(settings *settings.Settings, teams []*team.Team, states []state.State, playerHandler handler_custom.JoinHandler, worldHandler world.Handler, invHandler inventory.Handler) *Game {
 	if playerHandler == nil {
 		panic("player handler cannot be nil")
 	}
@@ -55,6 +56,7 @@ func NewGame(settings *settings.Settings, teams []*team.Team, states []state.Sta
 		Settings:         settings,
 		Teams:            teams,
 		PlayerHandler:    playerHandler,
+		WorldHandler:     worldHandler,
 		InventoryHandler: invHandler,
 		StateSeries:      state.NewScheduledStateSeries(states),
 		Participants:     maputils.NewMap[uuid.UUID, *participant.Participant](),
