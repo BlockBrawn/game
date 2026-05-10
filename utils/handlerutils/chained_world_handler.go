@@ -11,6 +11,16 @@ type ChainedWorldHandler struct {
 	Next   world.Handler
 }
 
+func (cwh ChainedWorldHandler) HandleRedstoneUpdate(ctx *world.Context, pos cube.Pos) {
+	if cwh.Middle != nil {
+		cwh.Middle.HandleRedstoneUpdate(ctx, pos)
+		if ctx.Cancelled() {
+			return
+		}
+	}
+	cwh.Next.HandleRedstoneUpdate(ctx, pos)
+}
+
 func (cwh ChainedWorldHandler) HandleLiquidFlow(ctx *world.Context, from, into cube.Pos, liquid world.Liquid, replaced world.Block) {
 	if cwh.Middle != nil {
 		cwh.Middle.HandleLiquidFlow(ctx, from, into, liquid, replaced)
